@@ -298,9 +298,8 @@ whoami
 # su - lfs 
 # su lfs <<EOSU
 # make -j32
-# su lfs <<EOSU
-# su lfs -c '
-/usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
+# su lfs <<EOSU ## /usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
+su -s /usr/bin/bash lfs -c '
 # source ~/.bash_profile
 read
 echo $LFS
