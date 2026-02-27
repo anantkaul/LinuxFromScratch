@@ -1,5 +1,10 @@
 #!/bin/bash
 
+## Updating and Upgrading System ... 
+echo -e '\n >> Updating and Upgrading System ...\n'
+sudo apt update
+sudo apt upgrade -y
+
 ## Executing Version Check for System ... 
 echo -e '\n >> Starting Version Check for the system (2.1) ...\n'
 # echo -e "\033[0;32mHello in Green\033[0m"
