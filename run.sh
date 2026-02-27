@@ -299,15 +299,17 @@ whoami
 # su lfs <<EOSU
 # make -j32
 # su lfs <<EOSU ## /usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
-su -s /usr/bin/bash lfs -c '
+# su -s /usr/bin/bash lfs -c '
+/usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
 # source ~/.bash_profile
 read
 echo $LFS
 export MAKEFLAGS=-j32
+export MAKEFLAGS=-j$(nproc)
 cat >> ~/.bashrc << "EOF"
 export MAKEFLAGS=-j$(nproc)
 EOF
-source ~/.bash_profile
+# source ~/.bash_profile
 # EOSU
 
 # whoami
