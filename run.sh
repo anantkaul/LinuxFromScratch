@@ -230,6 +230,8 @@ sudo chmod -v a+wt $LFS/sources
 echo -e "\n >> 4. Final Preparations ...\n"
 sudo mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
 
+whoami
+
 su root <<EOSU
 for i in bin lib sbin; do
   ln -sv usr/$i $LFS/$i
@@ -242,6 +244,7 @@ esac
 mkdir -pv $LFS/tools
 EOSU
 
+whoami
 ## 4.3 Adding the LFS User
 echo -e "\n >> 4.3 Adding the LFS User ...\n"
 sudo groupadd lfs
@@ -254,6 +257,8 @@ sudo chown -v lfs $LFS/{usr{,/*},var,etc,tools}
 case $(uname -m) in
   x86_64) chown -v lfs $LFS/lib64 ;;
 esac
+
+whoami
 
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 # su - lfs
@@ -280,21 +285,26 @@ EOF
 EOSU
 # exit
 
+whoami
+
 echo -e '\n >> Enter Password for "Root" (if prompted) ...\n'
 su - root -c "[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE"
 
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 
+whoami
 # su - lfs 
 # su lfs <<EOSU
-make -j32
+# make -j32
 su lfs <<EOSU
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
 export MAKEFLAGS=-j$(nproc)
 EOF
 source ~/.bash_profile
-EOSU
+# EOSU
+
+whoami
 
 ## 5. Compiling a Cross-Toolchain
 echo -e "\n >> 5. Compiling a Cross-Toolchain ...\n"
@@ -433,7 +443,7 @@ cd ../..
 # rm glibc-2.42.tar.xz
 # rm glibc-fhs-1.patch
 
-# EOSU
+EOSU
 exit 0
 # 5.6. Libstdc++ from GCC-15.2.0
 ## -------- PART OF GCC -----------
