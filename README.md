@@ -23,6 +23,6 @@ sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anantkaul/Linu
 git clone https://github.com/anantkaul/LinuxFromScratch
 cd LinuxFromScratch
 chmod +x run.sh
-./run.sh
+sudo ./run.sh
 ```
  
