@@ -286,7 +286,7 @@ su - root -c "[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bash
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 
 # su - lfs 
-su lfs <<EOSU
+su lfs <÷<EOSU
 make -j32
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
@@ -431,7 +431,7 @@ cd ../..
 # rm glibc-2.42.tar.xz
 # rm glibc-fhs-1.patch
 
-EOSU
+# EOSU
 exit 0
 # 5.6. Libstdc++ from GCC-15.2.0
 ## -------- PART OF GCC -----------
