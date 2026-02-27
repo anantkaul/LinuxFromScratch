@@ -294,15 +294,13 @@ echo -e '\n >> Enter Password for "Root" (if prompted) ...\n'
 [ ! -e /etc/bash.bashrc ] || sudo mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 
-whoami
+# whoami
 # su - lfs 
 # su lfs <<EOSU
 # make -j32
 # su lfs <<EOSU ## /usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
 # su -s /usr/bin/bash lfs -c '
 /usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
-# source ~/.bash_profile
-read
 echo $LFS
 export MAKEFLAGS=-j32
 export MAKEFLAGS=-j$(nproc)
