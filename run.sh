@@ -282,7 +282,7 @@ PATH=$LFS/tools/bin:$PATH
 CONFIG_SITE=$LFS/usr/share/config.site
 export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
 EOF
-EOSU
+# EOSU
 # exit
 
 whoami
@@ -296,7 +296,7 @@ whoami
 # su - lfs 
 # su lfs <<EOSU
 # make -j32
-su lfs <<EOSU
+# su lfs <<EOSU
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
 export MAKEFLAGS=-j$(nproc)
