@@ -214,17 +214,17 @@ echo -e "\n >> 3. Installing Packages and Patches ...\n"
 sudo mkdir -v $LFS/sources
 sudo chmod -v a+wt $LFS/sources
 
-cd $LFS/sources ## DO LATER
+# cd $LFS/sources ## DO LATER
 # wget --input-file=https://www.linuxfromscratch.org/lfs/downloads/stable-systemd/wget-list-systemd --continue --directory-prefix=$LFS/sources
 # wget --input-file=wget-list-systemd --continue --directory-prefix=$LFS/sources
 # wget --input-file=https://www.linuxfromscratch.org/lfs/downloads/stable-systemd/md5sums --continue --directory-prefix=$LFS/sources
-sudo chown root:root $LFS/sources/*
+# sudo chown root:root $LFS/sources/*
 
 ## 4. Final Preparations
 echo -e "\n >> 4. Final Preparations ...\n"
 sudo mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
 
-su lfs <<EOSU
+su root <<EOSU
 for i in bin lib sbin; do
   ln -sv usr/$i $LFS/$i
 done
