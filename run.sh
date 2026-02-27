@@ -268,7 +268,7 @@ su lfs -c '
 echo -e "\n >> 4.4 Setting Up the Environment ...\n"
 
 cat > ~/.bash_profile << "EOF"
-exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+exec env -i HOME=$HOME TERM=$TERM PS1="\u:\w\$ " /bin/bash
 EOF
 
 cat > ~/.bashrc << "EOF"
