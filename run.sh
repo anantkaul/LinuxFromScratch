@@ -317,9 +317,9 @@ tar -xvf binutils-2.46.0.tar.xz
 cd binutils-2.46.0
 mkdir -v build
 cd build
-time { ../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
+time { ../configure --prefix="$LFS/tools" \
+             --with-sysroot="$LFS" \
+             --target="$LFS_TGT"   \
              --disable-nls       \
              --enable-gprofng=no \
              --disable-werror    \
