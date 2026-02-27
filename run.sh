@@ -262,7 +262,8 @@ whoami
 
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 # su - lfs
-su lfs <<EOSU
+# su lfs <<EOSU
+su lfs -c '
 ## 4.4 Setting Up the Environment
 echo -e "\n >> 4.4 Setting Up the Environment ...\n"
 
@@ -282,7 +283,8 @@ PATH=$LFS/tools/bin:$PATH
 CONFIG_SITE=$LFS/usr/share/config.site
 export LFS LC_ALL LFS_TGT PATH CONFIG_SITE
 EOF
-EOSU
+# EOSU
+'
 # exit
 
 whoami
@@ -296,7 +298,8 @@ whoami
 # su - lfs 
 # su lfs <<EOSU
 # make -j32
-su lfs <<EOSU
+# su lfs <<EOSU
+su lfs -c '
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
 export MAKEFLAGS=-j$(nproc)
@@ -351,7 +354,7 @@ rm mpc-1.3.1.tar.gz
 
 case $(uname -m) in
   x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
+    sed -e "/m64=/s/lib64/lib/" \
         -i.orig gcc/config/i386/t-linux64
  ;;
 esac
@@ -394,7 +397,7 @@ tar -xvf linux-6.18.10.tar.xz
 cd linux-6.18.10
 make mrproper
 make headers
-find usr/include -type f ! -name '*.h' -delete
+find usr/include -type f ! -name "*.h" -delete
 cp -rv usr/include $LFS/usr
 
 ## NOT NEEDED mkdir -v build
@@ -429,12 +432,12 @@ echo "rootsbindir=/usr/sbin" > configparms
       --enable-kernel=5.4
 
 time { make && make DESTDIR=$LFS install; }
-sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
-echo 'int main(){}' | $LFS_TGT-gcc -x c - -v -Wl,--verbose &> dummy.log
-readelf -l a.out | grep ': /lib'
+sed "/RTLDLIST=/s@/usr@@g" -i $LFS/usr/bin/ldd
+echo "int main(){}" | $LFS_TGT-gcc -x c - -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ": /lib"
 grep -E -o "$LFS/lib.*/S?crt[1in].*succeeded" dummy.log
 grep -B3 "^ $LFS/usr/include" dummy.log
-grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
+grep "SEARCH.*/usr/lib" dummy.log |sed "s|; |\n|g"
 grep "/lib.*/libc.so.6 " dummy.log
 grep found dummy.log
 rm -v a.out dummy.log
@@ -443,7 +446,8 @@ cd ../..
 # rm glibc-2.42.tar.xz
 # rm glibc-fhs-1.patch
 
-EOSU
+# EOSU
+'
 exit 0
 # 5.6. Libstdc++ from GCC-15.2.0
 ## -------- PART OF GCC -----------
