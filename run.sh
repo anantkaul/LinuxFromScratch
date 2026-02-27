@@ -230,7 +230,7 @@ sudo chmod -v a+wt $LFS/sources
 echo -e "\n >> 4. Final Preparations ...\n"
 sudo mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
 
-whoami
+# whoami
 
 # su root <<EOSU
 for i in bin lib sbin; do
@@ -244,7 +244,7 @@ esac
 mkdir -pv $LFS/tools
 # EOSU
 
-whoami
+# whoami
 ## 4.3 Adding the LFS User
 echo -e "\n >> 4.3 Adding the LFS User ...\n"
 sudo groupadd lfs
@@ -258,7 +258,7 @@ case $(uname -m) in
   x86_64) chown -v lfs $LFS/lib64 ;;
 esac
 
-whoami
+# whoami
 
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 # su - lfs
@@ -287,14 +287,14 @@ EOF
 '
 # exit
 
-whoami
+# whoami
 
 echo -e '\n >> Enter Password for "Root" (if prompted) ...\n'
 # su - root -c "[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE"
 [ ! -e /etc/bash.bashrc ] || sudo mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 
-whoami
+# whoami
 # su - lfs 
 # su lfs <<EOSU
 # make -j32
@@ -307,7 +307,7 @@ EOF
 source ~/.bash_profile
 # EOSU
 
-whoami
+# whoami
 
 ## 5. Compiling a Cross-Toolchain
 echo -e "\n >> 5. Compiling a Cross-Toolchain ...\n"
