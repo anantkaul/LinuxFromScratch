@@ -288,11 +288,13 @@ echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 # su - lfs 
 # su lfs <<EOSU
 make -j32
+su lfs <<EOSU
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
 export MAKEFLAGS=-j$(nproc)
 EOF
 source ~/.bash_profile
+EOSU
 
 ## 5. Compiling a Cross-Toolchain
 echo -e "\n >> 5. Compiling a Cross-Toolchain ...\n"
