@@ -300,7 +300,7 @@ whoami
 # make -j32
 # su lfs <<EOSU
 # su lfs -c '
-runuser -u lfs -- /usr/bin/bash -c '
+/usr/sbin/runuser -u lfs -- /usr/bin/bash -c '
 # source ~/.bash_profile
 read
 echo $LFS
