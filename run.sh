@@ -211,7 +211,7 @@ sudo chmod 755 $LFS
 
 ## 3. Installing Packages and Patches
 echo -e "\n >> 3. Installing Packages and Patches ...\n"
-mkdir -v $LFS/sources
+sudo mkdir -v $LFS/sources
 sudo chmod -v a+wt $LFS/sources
 
 cd $LFS/sources ## DO LATER
@@ -222,8 +222,9 @@ sudo chown root:root $LFS/sources/*
 
 ## 4. Final Preparations
 echo -e "\n >> 4. Final Preparations ...\n"
-mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
+sudo mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
 
+su lfs <<EOSU
 for i in bin lib sbin; do
   ln -sv usr/$i $LFS/$i
 done
@@ -233,6 +234,7 @@ case $(uname -m) in
 esac
 
 mkdir -pv $LFS/tools
+EOSU
 
 ## 4.3 Adding the LFS User
 echo -e "\n >> 4.3 Adding the LFS User ...\n"
