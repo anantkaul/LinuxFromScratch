@@ -299,7 +299,8 @@ whoami
 # su lfs <<EOSU
 # make -j32
 # su lfs <<EOSU
-su lfs -c '
+su lfs -s /usr/bin/bash -c '
+echo $LFS
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
 export MAKEFLAGS=-j$(nproc)
