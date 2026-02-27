@@ -314,7 +314,7 @@ cd /mnt/lfs/sources
 # https://sourceware.org/pub/binutils/releases/binutils-2.46.0.tar.xz
 wget https://sourceware.org/pub/binutils/releases/binutils-2.46.0.tar.xz
 tar -xvf binutils-2.46.0.tar.xz
-cd binutils-2.46.0.tar.xz
+cd binutils-2.46.0
 mkdir -v build
 cd build
 ../configure --prefix=$LFS/tools \
@@ -332,21 +332,21 @@ cd ../..
 # 5.3 GCC-15.2.0 - Pass 1
 wget https://ftpmirror.gnu.org/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz
 tar -xvf gcc-15.2.0.tar.xz
-cd gcc-15.2.0.tar.xz
+cd gcc-15.2.0
 
 wget https://ftpmirror.gnu.org/gmp/gmp-6.3.0.tar.xz
 tar -xvf gmp-6.3.0.tar.xz
-mv gmp-6.3.0.tar.xz gmp
+mv gmp-6.3.0 gmp
 rm gmp-6.3.0.tar.xz
 
 wget https://ftpmirror.gnu.org/mpfr/mpfr-4.2.2.tar.xz
 tar -xvf mpfr-4.2.2.tar.xz
-mv mpfr-4.2.2.tar.xz mpfr
+mv mpfr-4.2.2 mpfr
 rm mpfr-4.2.2.tar.xz
 
 wget https://ftpmirror.gnu.org/mpc/mpc-1.3.1.tar.gz
 tar -xvf mpc-1.3.1.tar.gz
-mv mpc-1.3.1.tar.gz mpc
+mv mpc-1.3.1 mpc
 rm mpc-1.3.1.tar.gz
 
 case $(uname -m) in
@@ -391,7 +391,7 @@ cd ..
 # 5.4. Linux-6.16.1 API Headers
 wget https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.18.10.tar.xz
 tar -xvf linux-6.18.10.tar.xz
-cd linux-6.18.10.tar.xz
+cd linux-6.18.10
 make mrproper
 make headers
 find usr/include -type f ! -name '*.h' -delete
@@ -407,7 +407,7 @@ cd ..
 wget https://ftpmirror.gnu.org/glibc/glibc-2.42.tar.xz
 wget https://www.linuxfromscratch.org/patches/lfs/development/glibc-fhs-1.patch
 tar -xvf glibc-2.42.tar.xz
-cd glibc-2.42.tar.xz
+cd glibc-2.42
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
     ;;
