@@ -299,8 +299,9 @@ whoami
 # su lfs <<EOSU
 # make -j32
 # su lfs <<EOSU
-su lfs -c '
-source ~/.bash_profile
+# su lfs -c '
+runuser -u lfs -- bash -c '
+# source ~/.bash_profile
 read
 echo $LFS
 export MAKEFLAGS=-j32
