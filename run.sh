@@ -299,7 +299,7 @@ whoami
 # su lfs <<EOSU
 # make -j32
 # su lfs <<EOSU
-su lfs -s /usr/bin/bash -c '
+su lfs -c '
 source ~/.bash_profile
 read
 echo $LFS
