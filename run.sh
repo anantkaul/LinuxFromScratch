@@ -5,6 +5,12 @@ echo -e '\n >> Updating and Upgrading System ...\n'
 sudo apt update
 sudo apt upgrade -y
 
+## Setting Password for root ... 
+echo -e '\n >> Setting Password for root ...'
+echo -e ' >> Create Password for "Root" ...\n'
+
+sudo passwd root
+
 ## Executing Version Check for System ... 
 echo -e '\n >> Starting Version Check for the system (2.1) ...\n'
 # echo -e "\033[0;32mHello in Green\033[0m"
