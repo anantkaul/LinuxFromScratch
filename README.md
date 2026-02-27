@@ -16,7 +16,7 @@ Documentation Guide (Read Carefully)
    - `ext4` - `30 GB`  / `40 GB` (Preferred) - Mount: `/mnt/lfs`
 6. Once Complete, you can run:
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anantkaul/LinuxFromScratch/main/run.sh)"
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anantkaul/LinuxFromScratch/main/run.sh)"
 ```
   > `OR` Download and run at your convenience
 ```sh
