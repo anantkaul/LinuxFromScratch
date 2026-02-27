@@ -300,6 +300,8 @@ whoami
 # make -j32
 # su lfs <<EOSU
 su lfs -s /usr/bin/bash -c '
+source ~/.bash_profile
+read
 echo $LFS
 export MAKEFLAGS=-j32
 cat >> ~/.bashrc << "EOF"
