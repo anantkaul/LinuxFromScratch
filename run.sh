@@ -288,8 +288,8 @@ EOF
 whoami
 
 echo -e '\n >> Enter Password for "Root" (if prompted) ...\n'
-su - root -c "[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE"
-
+# su - root -c "[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE"
+[ ! -e /etc/bash.bashrc ] || sudo mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE
 echo -e '\n >> Enter Password for "LFS" user (if prompted) ...\n'
 
 whoami
