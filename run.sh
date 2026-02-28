@@ -391,7 +391,7 @@ cd build
     --disable-libquadmath     \
     --disable-libssp          \
     --disable-libvtv          \
-    --disable-libstdcxx       \
+    --disable-libstdcxx-pch   \
     --enable-languages=c,c++
 
 time { make && make install; }
