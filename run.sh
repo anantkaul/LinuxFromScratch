@@ -355,11 +355,19 @@ tar -xvf mpc-1.3.1.tar.gz
 mv mpc-1.3.1 mpc
 rm mpc-1.3.1.tar.gz
 
-case $(uname -m) in
+ARCH="$(uname -m)"
+
+case "$ARCH" in
   x86_64)
     sed -e "/m64=/s/lib64/lib/" \
         -i.orig gcc/config/i386/t-linux64
- ;;
+    ;;
+  arm64|aarch64)
+    echo "ARM64 detected — skipping lib64 adjustment"
+    ;;
+  *)
+    echo "Warning: untested architecture: $ARCH"
+    ;;
 esac
 
 mkdir -v build
