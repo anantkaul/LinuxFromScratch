@@ -422,12 +422,35 @@ wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/glibc-
 wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/glibc-fhs-1.patch
 tar -xvf glibc-2.43.tar.xz
 cd glibc-2.43
-case $(uname -m) in
-    i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
-    ;;
-    x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64
-            ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64/ld-lsb-x86-64.so.3
-    ;;
+
+# case $(uname -m) in
+#     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
+#     ;;
+#     x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64
+#             ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64/ld-lsb-x86-64.so.3
+#     ;;
+# esac
+
+ARCH=$(uname -m)
+
+case "$ARCH" in
+    i?86)
+        ln -sfv ld-linux.so.2 "$LFS/lib/ld-lsb.so.3"
+        ;;
+    x86_64)
+        ln -sfv ../lib/ld-linux-x86-64.so.2 "$LFS/lib64"
+        ln -sfv ../lib/ld-linux-x86-64.so.2 \
+                 "$LFS/lib64/ld-lsb-x86-64.so.3"
+        ;;
+    arm64|aarch64)
+        if [ -e "$LFS/lib/ld-linux-aarch64.so.1" ]; then
+            ln -sfv ld-linux-aarch64.so.1 \
+                     "$LFS/lib/ld-lsb-aarch64.so.3"
+        fi
+        ;;
+    *)
+        echo "Unsupported architecture: $ARCH"
+        ;;
 esac
 
 patch -Np1 -i ../glibc-fhs-1.patch
