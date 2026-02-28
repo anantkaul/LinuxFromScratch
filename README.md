@@ -11,7 +11,8 @@ Documentation Guide (Read Carefully)
 3. Start VM and select `Try and Install Ubuntu` while booting
 4. Select appropriate options while installing
 5. Create MANUAL Partitions with following specifications:
-   - `EFI` - `500 MB`  
+   - `ext4 (EFI)` - `1 GB` - Mount: `/boot/efi`
+   - `Boot` - `1 GB` - Mount: `/boot`
    - `ext4` - `19 GB` - Mount: `/`
    - `ext4` - `30 GB`  / `40 GB` (Preferred) - Mount: `/mnt/lfs`
 6. Once Complete, you can run:
