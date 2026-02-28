@@ -318,7 +318,7 @@ echo -e "\n >> 5. Compiling a Cross-Toolchain ...\n"
 cd /mnt/lfs/sources
 # 5.2 Binutls-2.46.0 - Pass 1
 # https://sourceware.org/pub/binutils/releases/binutils-2.46.0.tar.xz
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/binutils-2.46.0.tar.xz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/binutils-2.46.0.tar.xz
 tar -xvf binutils-2.46.0.tar.xz
 cd binutils-2.46.0
 mkdir -v build
@@ -336,21 +336,21 @@ cd ../..
 # rm binutils-2.46.0.tar.xz
 
 # 5.3 GCC-15.2.0 - Pass 1
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/gcc-15.2.0.tar.xz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/gcc-15.2.0.tar.xz
 tar -xvf gcc-15.2.0.tar.xz
 cd gcc-15.2.0
 
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/gmp-6.3.0.tar.xz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/gmp-6.3.0.tar.xz
 tar -xvf gmp-6.3.0.tar.xz
 mv gmp-6.3.0 gmp
 rm gmp-6.3.0.tar.xz
 
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/mpfr-4.2.2.tar.xz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/mpfr-4.2.2.tar.xz
 tar -xvf mpfr-4.2.2.tar.xz
 mv mpfr-4.2.2 mpfr
 rm mpfr-4.2.2.tar.xz
 
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/mpc-1.3.1.tar.gz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/mpc-1.3.1.tar.gz
 tar -xvf mpc-1.3.1.tar.gz
 mv mpc-1.3.1 mpc
 rm mpc-1.3.1.tar.gz
@@ -395,7 +395,7 @@ cd ..
 # rm gcc-15.2.0.tar.xz
 
 # 5.4. Linux-6.18.10 API Headers
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/linux-6.18.10.tar.xz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/linux-6.18.10.tar.xz
 tar -xvf linux-6.18.10.tar.xz
 cd linux-6.18.10
 make mrproper
@@ -410,8 +410,8 @@ cd ..
 # rm linux-6.18.10.tar.xz
 
 # 5.5. Glibc-2.43
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/packages/glibc-2.43.tar.xz
-wget https://github.com/anantkaul/LinuxFromScratch/blob/main/sources/patches/glibc-fhs-1.patch
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/glibc-2.43.tar.xz
+wget https://github.com/anantkaul/LinuxFromScratch/releases/download/v1.0/glibc-fhs-1.patch
 tar -xvf glibc-2.43.tar.xz
 cd glibc-2.43
 case $(uname -m) in
